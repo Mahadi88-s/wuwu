@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'assets/images/favicon.png' %}" rel="icon" type="image/png">
+    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+
+    <title>Password Admim List</title>
+    <meta charset="utf-8">
+
+</head>
+
+<body>
+
+            <div class="container m-auto"> 
+
+                <h1 class="text-2xl leading-none text-gray-900 tracking-tight mt-3"><a href="/">Home</a> <b>{{user.username}}</b></h1>
+
+                <br>
+                <hr>
+
+                <div class="grid lg:grid-cols-3 mt-12 gap-8">
+                    <div>
+                        <h3 class="text-xl mb-2"> General</h3>
+                        <p></p>
+                    </div>
+                    <div class="bg-white rounded-md lg:shadow-lg shadow col-span-2">
+    
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                       <div class="grid grid-cols-2 gap-3 lg:p-6 p-4">
+
+                            <div class="col-span-2">
+                                <label for=""> Password list</label>
+                                {% for usr, pwd in userinfo.items%}
+                                <h1 class="font-semibold text-lg">| Username: {{usr}} | Password: {{pwd}} |</h1>
+                                {% endfor%}
+
+                            </div>
+    
+                    </form>
+                    </div>
+    
+                    </div>
+                    <br>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    </div>
+
+
+    
+</body>
+<br>
+
+</html>
